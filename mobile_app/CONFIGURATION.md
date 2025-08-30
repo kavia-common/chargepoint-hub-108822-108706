@@ -19,6 +19,33 @@ Notifications (FCM)
 
 Maps
 - MAPS_API_KEY: Google Maps SDK key for mobile map rendering.
+  - Android: Add your key to AndroidManifest.xml as shown below.
+  - iOS: Add your key in AppDelegate if/when iOS target added.
+
+Android setup
+- Grant location permission and Internet.
+- For local dev against backend, use http://10.0.2.2:<port> as API_BASE_URL.
+
+Example .env (copy to .env)
+APP_ENV=development
+API_BASE_URL=http://10.0.2.2:8000
+MAPS_API_KEY=REQUIRED_GOOGLE_MAPS_API_KEY
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+STRIPE_PUBLISHABLE_KEY=
+FCM_SENDER_ID=
+
+AndroidManifest additions (android/app/src/main/AndroidManifest.xml)
+<manifest ...>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <application ...>
+    <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="${MAPS_API_KEY}"/>
+  </application>
+</manifest>
 
 Environment
 - APP_ENV: development|staging|production.
