@@ -1,0 +1,1 @@
+ /home/kavia/workspace/code-generation/chargepoint-hub-108822-108706/mobile_app/.dart_tool/flutter_build/b73d1e615daaba1342a7375af47fa80b/native_assets.json: 
